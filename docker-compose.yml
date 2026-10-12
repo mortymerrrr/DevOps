@@ -1,0 +1,38 @@
+services:
+  # ===== BACKEND =====
+  backend:
+    build:
+      context: ../lab_2/backend
+      dockerfile: Dockerfile
+    container_name: devops-backend
+    # Порт НЕ пробрасываем наружу — только внутренняя сеть
+    expose:
+      - "5000"
+    volumes:
+      # ./data на хосте → /app/data в контейнере
+      - ./data:/app/data
+    environment:
+      - DATA_DIR=/app/data
+    networks:
+      - devops-net
+    restart: unless-stopped
+
+  # ===== FRONTEND =====
+  frontend:
+    build:
+      context: ../lab_2/frontend
+      dockerfile: Dockerfile
+    container_name: devops-frontend
+    ports:
+      # Наружу торчит только nginx: localhost:8080 → контейнер:80
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - devops-net
+    restart: unless-stopped
+
+# ===== ОБЩАЯ СЕТЬ =====
+networks:
+  devops-net:
+    driver: bridge
