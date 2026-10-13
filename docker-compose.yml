@@ -2,7 +2,7 @@ services:
   # ===== BACKEND =====
   backend:
     build:
-      context: ../backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: devops-backend
     # Порт НЕ пробрасываем наружу — только внутренняя сеть
@@ -20,7 +20,7 @@ services:
   # ===== FRONTEND =====
   frontend:
     build:
-      context: ../frontend
+      context: ./frontend
       dockerfile: Dockerfile
     container_name: devops-frontend
     ports:
