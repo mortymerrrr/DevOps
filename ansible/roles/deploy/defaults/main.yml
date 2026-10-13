@@ -1,0 +1,14 @@
+---
+# Рабочая директория на удалённой ноде, куда будут клонированы репозитории
+app_dir: "/home/{{ ansible_user }}/devops-app"
+
+# Версия Docker Compose
+docker_compose_version: "2.24.0"
+
+# URL репозиториев
+backend_repo: "https://github.com/mortymerrrr/backend.git"
+frontend_repo: "https://github.com/mortymerrrr/frontend.git"
+devops_repo: "https://github.com/mortymerrrr/DevOps.git"
+
+# Ветки репозиториев (main по умолчанию)
+repo_branch: "main"

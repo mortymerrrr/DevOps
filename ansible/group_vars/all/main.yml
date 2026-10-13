@@ -1,0 +1,6 @@
+---
+app_dir: "/home/{{ ansible_user }}/devops-app"
+docker_compose_version: "2.24.0"
+backend_repo: "https://github.com/mortymerrrr/backend.git"
+frontend_repo: "https://github.com/mortymerrrr/frontend.git"
+devops_repo: "https://github.com/mortymerrrr/DevOps.git"
